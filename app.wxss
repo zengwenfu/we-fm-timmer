@@ -1,4 +1,8 @@
 page {
-  background-color: #fbf9fe;
+  background-color: #ccc;
   height: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  padding-top: 4rpx;
 }

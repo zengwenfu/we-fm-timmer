@@ -1,0 +1,11 @@
+<view class="added" bindtap="addItem">+</view>
+<view class="">
+    <view class="items-top">
+        <view class="item">重要紧急（<text>0</text>/<text>3</text>）</view>
+        <view class="item">紧急不重要（<text>0</text>/<text>3</text>）</view>
+    </view>
+    <view class="items-bottom">
+        <view class="item">重要不紧急（<text>0</text>/<text>3</text>）</view>
+        <view class="item">不重要不紧急（<text>0</text>/<text>3</text>）</view>
+    </view>
+</view>
