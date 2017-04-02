@@ -1,4 +1,6 @@
+<import src="../template/oneitem/oneitem.wxml"></import>
 <view class="added" bindtap="addItem">+</view>
+<template is="msgItem" data="{{...item}}"></template>
 <view class="">
     <view class="items-top">
         <view class="item">重要紧急（<text>0</text>/<text>3</text>）</view>

@@ -1,6 +1,15 @@
 Page({
   data: {
-    text: "This is page data."
+    item: {
+        id: '001',
+        title: '标题',
+        desc: '描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述',
+        start: '开始时间',
+        end: '结束时间'
+    }
+  },
+  moveLeft: function (event) {
+    console.log(event.currentTarget.dataset.id)
   },
   onLoad: function(options) {
     // Do some initialize when page load.

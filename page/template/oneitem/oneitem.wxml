@@ -1,0 +1,21 @@
+<!--
+  index: int
+  msg: string
+  time: string
+-->
+<template name="msgItem">
+  <view class="one-item" bindtap="moveLeft" data-id="{{id}}">
+    <view class="item-msg">
+        <view class="msg-title"> {{title}} </view>
+        <view class="msg-desc"> {{desc}} </view>
+    </view>
+    <view class="item-time">
+        <view class="time-start"> {{start}} </view>
+        <view class="time-end"> {{end}} </view>
+    </view>
+  </view>
+  <view class="item-tool">
+      <text class="tool-del">删除</text>
+      <text class="tool-done">完成</text>
+  </view>
+</template>

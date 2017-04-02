@@ -1,7 +1,9 @@
+/* 单个项目的样式引入 */
+@import './page/template/oneitem/oneitem.wxss';
 page {
   background-color: #ccc;
   height: 100%;
-  display: flex;
+  /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
   padding-top: 4rpx;
