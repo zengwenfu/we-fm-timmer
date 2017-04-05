@@ -1,0 +1,4 @@
+<import src="../template/oneitem/oneitem.wxml"></import>
+<block wx:for="{{list}}"  wx:key="id">
+    <template is="msgItem" data="{{...item}}"></template>
+</block>

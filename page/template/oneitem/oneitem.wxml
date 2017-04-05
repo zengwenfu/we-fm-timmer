@@ -8,7 +8,7 @@
         <view class="item-info" style="transform: translateX({{moveX + 'px'}})">
             <view class="item-msg">
                 <view class="msg-title"> {{title}} </view>
-                <view class="msg-desc"> {{desc}} </view>
+                <view class="msg-desc"> {{discript}} </view>
             </view>
             <view class="item-time">
                 <view class="time-start"> {{start}} </view>
