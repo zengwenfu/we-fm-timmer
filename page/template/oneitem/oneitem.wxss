@@ -1,15 +1,40 @@
 .one-item {
-    display: flex;
     line-height: 60rpx;
     border: 1rpx dashed #000;
     border-left: none;
     border-right: none;
+    position: relative;
+}
+.item-info{
+    display: flex;
+    background: #fff;
+    transition: all 1s;
+    /* opacity: 0; */
+}
+.item-tool{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    display: flex;
+}
+.tool-del,.tool-done {
+    height: 100%;
+    background: red;
+    margin: 0 1px;
+    line-height: 100%;
+    display: flex;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
 }
 .item-msg {
     flex: 3;
 }
 .msg-desc {
     font-size: 30rpx;
+    line-height: 40rpx;
 }
 .item-time {
     flex: 1;
