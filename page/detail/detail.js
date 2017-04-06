@@ -2,6 +2,7 @@ var common = require('../../util/common.js')
 Page({
   data: {
     list: [],
+    delBtnWidth: 120
   },
   touchS: function(e) {
     console.log("touchS" + e);
