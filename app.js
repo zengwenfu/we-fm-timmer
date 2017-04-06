@@ -6,13 +6,15 @@ App({
       getToday: 'getToday.js'
     },
     prd: {
-      host: 'http://we.facemagic888.com/',
+      host: 'https://we.facemagic888.com/',
       getToday: 'timer/getToday'
     }
   },
   onLaunch: function () {
     console.log('App Launch');
-    checkSession();
+    checkSession().then(function() {
+        console.log('登录成功');
+    });
   },
   onShow: function () {
     console.log('App Show')
@@ -22,6 +24,6 @@ App({
   },
   globalData: {
     hasLogin: false,
-    env: 'internal'
+    env: 'prd'
   }
 })
