@@ -1,3 +1,4 @@
+import { checkSession } from './util/loginUtil.js';
 App({
   api: {
     mock: {
@@ -10,7 +11,8 @@ App({
     }
   },
   onLaunch: function () {
-    console.log('App Launch')
+    console.log('App Launch');
+    checkSession();
   },
   onShow: function () {
     console.log('App Show')
@@ -20,6 +22,6 @@ App({
   },
   globalData: {
     hasLogin: false,
-    env: 'mock'
+    env: 'internal'
   }
 })
