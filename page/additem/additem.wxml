@@ -1,0 +1,7 @@
+<form bindsubmit="submit">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{typeList}}">
+        <view class="picker">
+            当前选择：{{typeList[index]}}
+        </view>
+    </picker>
+</form>

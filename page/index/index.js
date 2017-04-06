@@ -1,4 +1,4 @@
-var common = require('../../util/common.js')
+var common = require('../../util/common.js');
 Page({
   data: {
     importUrgency: {
@@ -17,6 +17,11 @@ Page({
       all: 0,
       done: 0
     }
+  },
+  addItem: function(e) {
+    wx.navigateTo({
+        url: '../additem/additem'
+    });
   },
   toDetail: function(e) {
     wx.navigateTo({
