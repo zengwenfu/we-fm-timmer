@@ -6,9 +6,9 @@
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "麦菲时间管理",
-    "navigationBarBackgroundColor": "#fbf9fe",
-    "backgroundColor": "#fbf9fe"
+    "navigationBarTitleText": "麦菲日程",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
   },
   "networkTimeout": {
     "request": 10000,

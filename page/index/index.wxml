@@ -1,12 +1,30 @@
 
-<view class="added" bindtap="addItem">+</view>
-<view class="">
-    <view class="items-top">
-        <view class="item" data-type="{{importUrgency.type}}" data-url=""bindtap="toDetail">重要紧急（<text>{{importUrgency.done}}</text>/<text>{{importUrgency.all}}</text>）</view>
-        <view class="item" data-type="{{importNoUrgency.type}}"  bindtap="toDetail">紧急不重要（<text>{{importNoUrgency.done}}</text>/<text>{{importNoUrgency.done}}</text>）</view>
+<view class="header">
+    <view class="userinfo">
+        <image class="avatar" src="{{userinfo.avatarUrl}}"></image>
+        <text class="nickName">{{userinfo.nickName}}</text>
     </view>
-    <view class="items-bottom">
-        <view class="item" data-type="{{noImportUrgency.type}}" bindtap="toDetail">重要不紧急（<text>{{noImportUrgency.done}}</text>/<text>{{noImportUrgency.done}}</text>）</view>
-        <view class="item" data-type="{{noImportNoUrgency.type}}" bindtap="toDetail">不重要不紧急（<text>{{noImportNoUrgency.done}}</text>/<text>{{noImportNoUrgency.done}}</text>）</view>
+</view>
+
+<view class="items">
+    <view class="item" bindtap="toDetail">
+        <text>重要紧急</text>
+        <text>（{{importUrgency.done}}/{{importUrgency.all}}）</text>
     </view>
+    <view class="item" bindtap="toDetail">
+        <text>紧急不重要</text>
+        <text>（{{noImportUrgency.done}}/{{noImportUrgency.all}}）</text>
+    </view>
+    <view class="item" bindtap="toDetail">
+        <text>重要不紧急</text>
+        <text>（{{importNoUrgency.done}}/{{importNoUrgency.all}}）</text>
+    </view>
+    <view class="item" bindtap="toDetail">
+        <text>不紧急不重要</text>
+        <text>（{{noImportNoUrgency.done}}/{{noImportNoUrgency.all}}）</text>
+    </view>
+</view>
+
+<view class="add" bindtap="addItem">
+    <text>添加</text>
 </view>

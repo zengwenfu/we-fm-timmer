@@ -1,6 +1,10 @@
 var common = require('../../util/common.js');
 Page({
   data: {
+    userinfo: {
+      avatarUrl: '',
+      nickName: ''
+    },
     importUrgency: {
       all: 0,
       done: 0
@@ -28,8 +32,28 @@ Page({
         url: '../detail/detail?type='+ e.currentTarget.dataset.type
     });
   },
+  /**
+   * 加载用户信息
+   */
+  loadUser: function() {
+    let _this = this;
+    wx.getUserInfo({
+      success: function(res){
+        _this.setData({
+          userinfo: {
+            avatarUrl: res.userInfo.avatarUrl,
+            nickName: res.userInfo.nickName
+          }
+        })
+      }
+    });
+  },
   onLoad: function(options) {
     let _this = this;
+    //加载用户信息
+    _this.loadUser();
+     
+
     // Do some initialize when page load.
     common.getAllData().then(res => {
       let lists = res.data.list;

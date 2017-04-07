@@ -7,3 +7,57 @@
     height: 300rpx;
     background: #fff;
 } */
+
+.header {
+    height: 260rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #a87b4f;*/
+}
+
+.userinfo {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+}
+
+.nickName {
+    line-height: 50rpx;
+    font-size: 30rpx;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 30rpx;
+    justify-content: space-between;
+}
+
+.item {
+    width: 330rpx;
+    height: 330rpx;
+    background-color: #CCCCCC;
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 150rpx;
+    background-color: #09bb08;
+    text-align: center;
+    line-height: 150rpx;
+    margin: 30rpx auto;
+    color: #FFFFFF;
+}
