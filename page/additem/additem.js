@@ -10,36 +10,73 @@ Page({
     endTime: '10:00',
     startTime: '09:00',
     title: '',
-    discript: ''
+    discript: '',
+    hidden: true
   },
+  /**
+   * 监听类型选择器
+   */
   bindPickerChange: function(e) {
     this.setData({
       index: parseInt(e.detail.value)
     });
   },
+  /**
+   * 监听开始时间选择器
+   */
   bindStartTimeChange: function(e) {
     this.setData({
       startTime: e.detail.value
     });
   },
+  /**
+   * 监听结束时间选择器
+   */
   bindEndTimeChange: function(e) {
     console.log(e.detail.value);
     this.setData({
       endTime: e.detail.value
     });
   },
+  /**
+   * 监听标题表单域
+   */
   bindTitleInput: function(e) {
     this.setData({
       title: e.detail.value
     });
   },
+  /**
+   * 监听描述表单域
+   */
   bindDiscriptInput: function(e) {
     this.setData({
       discript: e.detail.value
     });
   },
+  /**
+   *  显示loading组件 
+   */
+  showLoading: function() {
+    this.setData({
+      hidden: false
+    });
+  },
+  /**
+   *  隐藏loading
+   */
+  hideLoading: function() {
+    this.setData({
+      hidden: true
+    })
+  },
+  /**
+   * 增加任务
+   */
   addTask: function(e) {
     let self = this;
+
+    //标题必填
     if(this.data.title === '') {
       wx.showToast({
         'title': '请输入任务名称'
@@ -47,9 +84,10 @@ Page({
       return;
     }
 
+    // 显示loading组件
+    self.showLoading();
 
-
-
+    //读取参数
     var param = {
       type: (self.data.index + 1) + '',
       title: self.data.title,
@@ -58,15 +96,15 @@ Page({
       end: self.data.endTime
     }
 
+    //请求
     request({
       url: api.host + api.addTask,
       data: {
         data: JSON.stringify(param)
       },
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      // header: {}, // 设置请求的 header
+      method: 'POST', 
       success: function(res){
-       
+        self.hideLoading();
         if(res.data.code === '0') {
             app.globalData.updateFlag = true;
             wx.showToast({
@@ -85,7 +123,7 @@ Page({
         
       },
       fail: function(res) {
-        
+        self.hideLoading();
       }
     })
   },
