@@ -9,7 +9,7 @@
 } */
 
 .header {
-    height: 260rpx;
+    height: 220rpx;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,6 +31,7 @@
 .nickName {
     line-height: 50rpx;
     font-size: 30rpx;
+    color: #425c75;
 }
 
 .items {
@@ -43,7 +44,7 @@
 .item {
     width: 330rpx;
     height: 330rpx;
-    background-color: #CCCCCC;
+    background-color: rgba(231, 229, 230, 0.8);
     margin-top: 30rpx;
     display: flex;
     flex-direction: column;
@@ -51,13 +52,45 @@
     align-items: center;
 }
 
+.item-icon {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.careful-font {
+    color: #ED746A;
+}
+
+.item-text {
+     line-height: 40rpx;
+     font-size: 30rpx;
+}
+
+.remind-font {
+    color: #ED646A;
+}
+
+.edit-font {
+    color: #F9925D;
+}
+
+.list-font {
+    color: #FFAC28;
+}
+
 .add {
     width: 150rpx;
     height: 150rpx;
     border-radius: 150rpx;
-    background-color: #09bb08;
-    text-align: center;
-    line-height: 150rpx;
-    margin: 30rpx auto;
+    background-color: #425c75;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60rpx auto;
     color: #FFFFFF;
+}
+
+.add image {
+    width: 100rpx;
+    height: 100rpx;
 }

@@ -5,9 +5,9 @@
     "page/detail/detail"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "麦菲日程",
-    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarBackgroundColor": "#425c75",
     "backgroundColor": "#FFFFFF"
   },
   "networkTimeout": {
