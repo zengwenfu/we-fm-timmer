@@ -24,6 +24,8 @@ App({
   },
   globalData: {
     hasLogin: false,
+    //更新标志，新增或修改后要把这个标志置为true
+    updateFlag: false,
     env: 'prd'
   }
 })

@@ -1,4 +1,4 @@
-var common = require('../../util/common.js');
+var common = require('../../util/common2.js');
 Page({
   data: {
     userinfo: {
@@ -48,76 +48,36 @@ Page({
       }
     });
   },
+  loadTaskData: function() {
+    let _this = this;
+    common.getToday().then(function(result) {
+      console.log(result);
+      _this.setData({
+        importUrgency: {
+          all: result['1'].total,
+          done: result['1'].done
+        },
+        noImportUrgency: {
+          all: result['2'].total,
+          done: result['2'].done
+        },
+        importNoUrgency: {
+          all: result['3'].total,
+          done: result['3'].done
+        },
+        noImportNoUrgency: {
+          all: result['4'].total,
+          done: result['4'].done
+        }
+      })
+    });
+  },
   onLoad: function(options) {
     let _this = this;
     //加载用户信息
     _this.loadUser();
-     
-
-    // Do some initialize when page load.
-    common.getAllData().then(res => {
-      let lists = res.data.list;
-      let doneImportUrgency = '';
-      let doneImportNoUrgency = '';
-      let doneNoImportUrgency = '';
-      let doneNoImportNoUrgency = '';
-      let allImportUrgency = '';
-      let allImportNoUrgency = '';
-      let allNoImportUrgency = '';
-      let allNoImportNoUrgency = '';
-      lists.forEach(function(item, index) {
-        switch (item.type) {
-          case '1':
-            allImportUrgency++;
-            if (item.finished === '0') {
-              doneImportUrgency++;
-            }
-            break;
-          case '2':
-            allImportNoUrgency++;
-            if (item.finished === '0') {
-              doneImportNoUrgency++;
-            }
-            break;
-          case '3':
-            allNoImportUrgency++;
-            if (item.finished === '0') {
-              doneNoImportUrgency++;
-            }
-            break;
-          case '4':
-            allNoImportNoUrgency++;
-            if (item.finished === '0') {
-              doneNoImportNoUrgency++;
-            }
-            break;
-          default:
-            break;
-        }
-        _this.setData({
-          importUrgency: {
-            all: allImportUrgency,
-            done: doneImportUrgency,
-            type: '1'
-          },
-          importNoUrgency: {
-            all: allImportNoUrgency,
-            done: doneImportNoUrgency,
-            type: '2'
-          },
-          noImportUrgency: {
-            all: allNoImportUrgency,
-            done: doneNoImportUrgency,
-            type: '3'
-          },
-          noImportNoUrgency: {
-            all: allNoImportNoUrgency,
-            done: doneNoImportNoUrgency,
-            type: '4'
-          }
-        })
-      });
-    });
+    //加载任务数据
+    _this.loadTaskData();
   },
   onReady: function() {
     // Do something when page ready.
