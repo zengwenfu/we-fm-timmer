@@ -3,11 +3,12 @@ App({
   api: {
     mock: {
       host: '../mock/',
-      getToday: 'getToday.js'
+      getToday: 'getToday.js',
     },
     prd: {
       host: 'https://we.facemagic888.com/',
-      getToday: 'timer/getToday'
+      getToday: 'timer/getToday',
+      addTask: 'timer/addTask'
     }
   },
   onLaunch: function () {

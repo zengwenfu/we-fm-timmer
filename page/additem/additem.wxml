@@ -1,7 +1,38 @@
-<form bindsubmit="submit">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{typeList}}">
-        <view class="picker">
-            当前选择：{{typeList[index]}}
+<view class="container">
+    <form bindsubmit="submit">
+        <view class="section">
+            <view class="section_title">任务类型：</view>
+            <picker class="input" bindchange="bindPickerChange" value="{{index+1}}" range="{{typeList}}">
+                <view class="picker">
+                    {{typeList[index]}}
+                </view>
+            </picker>
         </view>
-    </picker>
-</form>
+        <view class="section">
+            <view class="section_title">任务名称：</view>
+            <input type='text' bindinput="bindTitleInput" class="input" placeholder="请输入任务名称" placeholder-class="pclass" value='{{title}}' />
+        </view>
+        <view class="area-section">
+            <view class="section_title">任务描述：</view>
+            <textarea bindinput="bindDiscriptInput"  class="area" placeholder="请输入任务描述" placeholder-class="apclass" value='{{discript}}'/>
+        </view>
+       <view class="section">
+            <view class="section_title">开始时间：</view>
+            <picker mode="time" value="{{startTime}}" class="input" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+                <view class="picker">
+                 {{startTime}}
+                </view>
+  </picker>
+        </view>
+        <view class="section">
+            <view class="section_title">结束时间：</view>
+            <picker mode="time" value="{{endTime}}" class="input" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+                <view class="picker">
+                 {{endTime}}
+                </view>
+  </picker>
+        </view>
+        <view class="button" bindtap="addTask">提交</view>
+    </form>
+</view>
+

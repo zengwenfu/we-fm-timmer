@@ -44,7 +44,7 @@
 .item {
     width: 330rpx;
     height: 330rpx;
-    background-color: rgba(231, 229, 230, 0.8);
+    background: rgba(231, 229, 230, 0.8);
     margin-top: 30rpx;
     display: flex;
     flex-direction: column;

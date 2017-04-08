@@ -1,3 +1,50 @@
-.picker {
-    color: #0f0;
+.container {
+    padding: 30rpx;
+    font-size: 36rpx;
+    color: #FFAC28;
+}
+
+
+.section {
+    display: flex;
+   align-items: center;
+   height: 130rpx;
+
+}
+
+.area-section {
+    display: flex;
+   align-items: center;
+   height: 300rpx;
+}
+
+.section_title {
+    width: 180rpx;
+    color: #425c75;
+}
+
+.input {
+    flex: 1;
+    background:  rgba(231, 229, 230, 0.8);
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    padding: 0 30rpx;
+}
+
+.pclass {
+    color: #FFAC28;
+}
+
+.area {
+    flex: 1;
+    background:  rgba(231, 229, 230, 0.8);
+    border-radius: 10rpx;
+    height: 200rpx;
+    padding: 30rpx 30rpx;
+}
+
+.apclass {
+    padding: 30rpx 30rpx;
+    color: #FFAC28
 }

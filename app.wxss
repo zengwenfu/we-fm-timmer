@@ -9,3 +9,14 @@ page {
   /*padding-top: 4rpx;*/
   /*color: #a87b4f;*/
 }
+
+.button {
+  width: 150rpx;
+  height: 150rpx;
+  background-color: #425c75;
+  margin: 40rpx auto;
+  border-radius: 100rpx;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 150rpx;
+}

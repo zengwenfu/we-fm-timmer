@@ -120,5 +120,6 @@ function getToday() {
 }
 
 module.exports = {
-    getToday: getToday
+    getToday: getToday,
+    requestToday: requestToday
 }
