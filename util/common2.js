@@ -8,7 +8,28 @@ var dateUtil = require('./dateUtil.js');
  */
 function dueResult(res) {
     if(res.data.code === '0') {
-        var result = {};
+        var result = {
+            '1': {
+                total: 0,
+                done: 0,
+                list: []
+            },
+            '2': {
+                total: 0,
+                done: 0,
+                list: []
+            },
+            '3': {
+                total: 0,
+                done: 0,
+                list: []
+            },
+            '4': {
+                total: 0,
+                done: 0,
+                list: []
+            }
+        };
         let list = res.data.data.list;
         for(let i = 0; i < list.length; i++) {
             let item = list[i];

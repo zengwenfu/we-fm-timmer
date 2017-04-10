@@ -111,14 +111,13 @@ function regist(sessionid) {
     })
 }
 
-
 /**
  *  判断登录态是否过期
  */
 function checkSession() {
     return new Promise(function(resolve, reject) {
          wx.checkSession({
-            success: function(){
+            success: function() {
                 //登录态不过期
                 console.log('已登录');
                 resolve();

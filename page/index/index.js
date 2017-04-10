@@ -77,7 +77,7 @@ Page({
     //加载用户信息
     _this.loadUser();
     //加载任务数据
-    _this.loadTaskData();
+    // _this.loadTaskData();
   },
   onReady: function() {
     // Do something when page ready.
