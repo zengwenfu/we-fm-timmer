@@ -27,6 +27,7 @@ function dueResult(res) {
                 quadrant.done++;
             }
         }
+        console.log(result)
         return result;
     } else {
         console.log(res.msg);
@@ -80,6 +81,7 @@ function requestToday() {
             data: {},
             method: 'GET',
             success: function(res){
+                console.log(res.data.data.date);
                 var result = dueResult(res);
                 saveToLocal(res.data.data.date, result);
                 resolve(result);

@@ -7,22 +7,22 @@
 </view>
 
 <view class="items">
-    <view class="item" bindtap="toDetail">
+    <view class="item" bindtap="toDetail" data-type="1" data-total="{{importUrgency.all}}">
         <image class="item-icon" src="../../sources/images/careful.png"></image>
         <text class="item-text careful-font">重要紧急</text>
         <text class="item-text careful-font">（{{importUrgency.done}}/{{importUrgency.all}}）</text>
     </view>
-    <view class="item" bindtap="toDetail">
+    <view class="item" bindtap="toDetail" data-type="2" data-total="{{noImportUrgency.all}}">
         <image class="item-icon" src="../../sources/images/remind.png"></image>
         <text class="item-text remind-font">紧急不重要</text>
         <text class="item-text remind-font">（{{noImportUrgency.done}}/{{noImportUrgency.all}}）</text>
     </view>
-    <view class="item" bindtap="toDetail">
+    <view class="item" bindtap="toDetail" data-type="3" data-total="{{importNoUrgency.all}}">
         <image src="../../sources/images/edit.png" class="item-icon"></image>
         <text class="item-text edit-font">重要不紧急</text>
         <text class="item-text edit-font">（{{importNoUrgency.done}}/{{importNoUrgency.all}}）</text>
     </view>
-    <view class="item" bindtap="toDetail">
+    <view class="item" bindtap="toDetail" data-type="4" data-total="{{noImportNoUrgency.all}}">
         <image class="item-icon" src="../../sources/images/list.png"></image>
         <text class="item-text list-font">不紧急不重要</text>
         <text class="item-text list-font">（{{noImportNoUrgency.done}}/{{noImportNoUrgency.all}}）</text>
