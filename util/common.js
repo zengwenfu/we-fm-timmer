@@ -42,9 +42,10 @@ function setAllData(user, data) {
  */
 function getItemByType(user, type, fn) {
     getDataByUser(user, function(res) {
-        let lists = res.data.list;
+        console.log(res)
+        let lists = res.data[type].list;
         let items = [];
-        // console.log(lists)
+        console.log(res.data.list)
         lists.forEach(function(item, index) {
             if (item.type === type) {
                 Object.assign(item, { moveX: '0' })

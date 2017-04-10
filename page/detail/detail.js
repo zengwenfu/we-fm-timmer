@@ -62,7 +62,7 @@ Page({
   onLoad: function(options) {
     let _this = this;
     console.log(options.type);
-    common.getItemByType('000',options.type,function(res){
+    common.getItemByType('2017/04/10',options.type,function(res){
       _this.setData({
         list: res
       })

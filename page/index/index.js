@@ -24,13 +24,27 @@ Page({
   },
   addItem: function(e) {
     wx.navigateTo({
-        url: '../additem/additem'
+      url: '../additem/additem'
     });
   },
   toDetail: function(e) {
-    wx.navigateTo({
-        url: '../detail/detail?type='+ e.currentTarget.dataset.type
-    });
+    console.log(this.data);
+    let url = ''
+    if (e.currentTarget.dataset.total > 0) {
+      url = '../detail/detail?type=' + e.currentTarget.dataset.type;
+    } else {
+      wx.showToast({
+        title: '请添加相应类型任务！',
+        icon: 'success',
+        duration: 800
+      })
+      url = '../additem/additem';
+    }
+    setTimeout(function() {
+      wx.navigateTo({
+        url: url
+      });
+    }, 1000)
   },
   /**
    * 加载用户信息
@@ -38,7 +52,7 @@ Page({
   loadUser: function() {
     let _this = this;
     wx.getUserInfo({
-      success: function(res){
+      success: function(res) {
         _this.setData({
           userinfo: {
             avatarUrl: res.userInfo.avatarUrl,
@@ -54,20 +68,20 @@ Page({
       console.log(result);
       _this.setData({
         importUrgency: {
-          all: result['1'].total,
-          done: result['1'].done
+          all: result['1'] ? result['1'].total : 0,
+          done: result['1'] ? result['1'].done : 0
         },
         noImportUrgency: {
-          all: result['2'].total,
-          done: result['2'].done
+          all: result['2'] ? result['2'].total : 0,
+          done: result['2'] ? result['2'].done : 0
         },
         importNoUrgency: {
-          all: result['3'].total,
-          done: result['3'].done
+          all: result['3'] ? result['3'].total : 0,
+          done: result['3'] ? result['3'].done : 0
         },
         noImportNoUrgency: {
-          all: result['4'].total,
-          done: result['4'].done
+          all: result['4'] ? result['4'].total : 0,
+          done: result['4'] ? result['4'].done : 0
         }
       })
     });
