@@ -48,7 +48,7 @@ function dueResult(res) {
                 quadrant.done++;
             }
         }
-        console.log(result)
+        console.log(result);
         return result;
     } else {
         console.log(res.msg);
@@ -72,7 +72,7 @@ function saveToLocal(date, result) {
       complete: function(res) {
         // complete
       }
-    })
+    });
 }
 
 /**
@@ -88,7 +88,7 @@ function getFromLocal(date) {
           fail: function(res) {
             resolve(false);
           }
-        })
+        });
     });
 }
 

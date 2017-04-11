@@ -3,22 +3,34 @@ var app = getApp();
 Page({
   data: {
     list: [],
-    delBtnWidth: 120
+    delBtnWidth: 120,
+    total: 0,
+    index: 0
   },
   touchS: function(e) {
-    console.log("touchS" + e);
+    let _this = this;
     //判断是否只有一个触摸点
+    let len = this.data.total;
+    let curIndex = e.currentTarget.dataset.index;
+    console.log(len);
+    let item = {};
+    if(this.data.index !== curIndex){
+      let preItem = 'list[' + this.data.index + '].moveX';
+      item[preItem] = 0;
+    }
+    this.setData(item);
     if (e.touches.length == 1) {
       this.setData({
         //记录触摸起始位置的X坐标
-        startX: e.touches[0].clientX
+        startX: e.touches[0].clientX,
+        index: curIndex
       });
     }
   },
   // 触摸时触发，手指在屏幕上每移动一次，触发一次
   touchM: function(e) {
-    console.log("touchM:" + e.touches);
-    var _this = this;
+    let curIndex = e.currentTarget.dataset.index;
+    let _this = this;
     if (e.touches.length == 1) {
       //记录触摸点位置的X坐标
       let moveX = e.touches[0].clientX;
@@ -27,11 +39,12 @@ Page({
       //delBtnWidth 为右侧按钮区域的宽度
       let delBtnWidth = _this.data.delBtnWidth;
       let txtStyle = "";
-      // let item = {};
+
       if (disX > 0 && disX <= delBtnWidth) { //移动距离大于0，文本层left值等于手指移动距离
-        this.setData({
-          'list[0].moveX': -disX
-        })
+        let item = {};
+        let curItem = 'list[' + curIndex + '].moveX';
+        item[curItem] = -disX;
+        this.setData(item);
       }
       // //获取手指触摸的是哪一个item
       // var index = e.currentTarget.dataset.index;
@@ -45,7 +58,7 @@ Page({
     }
   },
   touchE: function(e) {
-    console.log("touchE" + e);
+    let curIndex = e.currentTarget.dataset.index;
     let _this = this;
     if (e.changedTouches.length == 1) {
       //手指移动结束后触摸点位置的X坐标
@@ -55,20 +68,67 @@ Page({
       let delBtnWidth = _this.data.delBtnWidth;
       let movx = disX > delBtnWidth / 2 ? delBtnWidth : 0;
       //如果距离小于删除按钮的1/2，不显示删除按钮
-      this.setData({
-        'list[0].moveX': -movx
-      })
+      let item = {};
+      let curItem = 'list[' + curIndex + '].moveX';
+      item[curItem] = -movx;
+      this.setData(item);
     }
+  },
+  delItem: function(e) {
+    console.log(e)
+    let _this = this;
+    let curIndex = e.currentTarget.dataset.index;
+    let preList = _this.data.list;
+    console.log(preList)
+    let curList = [];
+    let param = {
+      id: e.currentTarget.dataset.id
+    }
+    self.showLoading();
+    //请求
+    request({
+      url: api.host + api.deleteTast,
+      data: {
+        data: JSON.stringify(param)
+      },
+      method: 'POST',
+      success: function(res) {
+        self.hideLoading();
+        if (res.data.code === '0') {
+          app.globalData.updateFlag = true;
+          wx.showToast({
+            title: '提交成功',
+            duration: 800
+          });
+          curList = preList.remove(curIndex);
+          this.setData({
+            list: curList
+          });
+        } else {
+          wx.showToast({
+            title: '提交失败'
+          });
+        }
+      },
+      fail: function(res) {
+        self.hideLoading();
+      }
+    })
   },
   onLoad: function(options) {
     let _this = this;
     console.log(options.type);
-    common.getItemByType(app.globalData.getKey,options.type,function(res){
-      _this.setData({
-        list: res
-      })
+    _this.setData({
+      total: options.total
     })
-    // Do some initialize when page load.
+    console.log(app.globalData.getKey)
+    common.getItemByType(app.globalData.getKey, options.type, function(res) {
+      console.log(res)
+        _this.setData({
+          list: res
+        })
+      })
+      // Do some initialize when page load.
   },
   onReady: function() {
     // Do something when page ready.
@@ -88,7 +148,7 @@ Page({
   onReachBottom: function() {
     // Do something when page reach bottom.
   },
-  onShareAppMessage: function () {
-   // return custom share data when user share.
+  onShareAppMessage: function() {
+    // return custom share data when user share.
   }
 })

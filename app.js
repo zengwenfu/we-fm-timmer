@@ -8,10 +8,12 @@ App({
     prd: {
       host: 'https://we.facemagic888.com/',
       getToday: 'timer/getToday',
-      addTask: 'timer/addTask'
+      addTask: 'timer/addTask',
+      deleteTast: 'timer/deleteTask'
     }
   },
   onLaunch: function () {
+    // wx.clearStorage()
     console.log('App Launch');
     checkSession().then(function() {
         console.log('登录成功');

@@ -1,8 +1,6 @@
 .one-item {
     line-height: 60rpx;
-    border: 1rpx dashed #000;
-    border-left: none;
-    border-right: none;
+    border-bottom: 1rpx dashed #000;
     position: relative;
 }
 .item-info{

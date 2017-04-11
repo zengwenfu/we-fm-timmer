@@ -5,7 +5,7 @@ var common = require('../../util/common2.js');
 
 Page({
   data: {
-    typeList: ['重要紧急','紧急不重要','重要不紧急','不重要不紧急'],
+    typeList: ['重要紧急', '紧急不重要', '重要不紧急', '不重要不紧急'],
     index: 0,
     endTime: '10:00',
     startTime: '09:00',
@@ -55,7 +55,7 @@ Page({
     });
   },
   /**
-   *  显示loading组件 
+   *  显示loading组件
    */
   showLoading: function() {
     this.setData({
@@ -77,7 +77,7 @@ Page({
     let self = this;
 
     //标题必填
-    if(this.data.title === '') {
+    if (this.data.title === '') {
       wx.showToast({
         'title': '请输入任务名称'
       });
@@ -102,25 +102,30 @@ Page({
       data: {
         data: JSON.stringify(param)
       },
-      method: 'POST', 
-      success: function(res){
+      method: 'POST',
+      success: function(res) {
         self.hideLoading();
-        if(res.data.code === '0') {
-            app.globalData.updateFlag = true;
-            wx.showToast({
-              title: '提交成功'
-            });
-            self.setData({
-              index: 0,
-              title: '',
-              discript: ''
-            });
+        if (res.data.code === '0') {
+          app.globalData.updateFlag = true;
+          wx.showToast({
+            title: '提交成功',
+            duration: 800
+          });
+          setTimeout(function() {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1200)
+          self.setData({
+            index: 0,
+            title: '',
+            discript: ''
+          });
         } else {
-           wx.showToast({
-             title: '提交失败'
-           });
+          wx.showToast({
+            title: '提交失败'
+          });
         }
-        
       },
       fail: function(res) {
         self.hideLoading();
@@ -148,7 +153,7 @@ Page({
   onReachBottom: function() {
     // Do something when page reach bottom.
   },
-  onShareAppMessage: function () {
-   // return custom share data when user share.
+  onShareAppMessage: function() {
+    // return custom share data when user share.
   }
 })

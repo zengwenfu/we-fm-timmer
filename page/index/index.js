@@ -31,7 +31,7 @@ Page({
     console.log(this.data);
     let url = ''
     if (e.currentTarget.dataset.total > 0) {
-      url = '../detail/detail?type=' + e.currentTarget.dataset.type;
+      url = '../detail/detail?type=' + e.currentTarget.dataset.type +'&total=' + e.currentTarget.dataset.total;
     } else {
       wx.showToast({
         title: '请添加相应类型任务！',
@@ -91,7 +91,7 @@ Page({
     //加载用户信息
     _this.loadUser();
     //加载任务数据
-    // _this.loadTaskData();
+    _this.loadTaskData();
   },
   onReady: function() {
     // Do something when page ready.

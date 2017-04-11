@@ -52,7 +52,7 @@ function getItemByType(user, type, fn) {
                 items.push(item);
             }
         });
-        // console.log(items);
+        console.log(items);
         !!fn && fn(items);
     });
 }

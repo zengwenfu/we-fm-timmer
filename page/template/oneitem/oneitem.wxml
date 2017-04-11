@@ -4,8 +4,8 @@
   time: string
 -->
 <template name="msgItem">
-    <view class="one-item" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-id="{{id}}">
-        <view class="item-info" style="transform: translateX({{moveX + 'px'}})">
+    <view class="one-item">
+        <view class="item-info" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE"  data-id="{{_id}}" data-index="{{index}}" data-total="{{total}}" style="transform: translateX({{moveX + 'px'}})">
             <view class="item-msg">
                 <view class="msg-title"> {{title}} </view>
                 <view class="msg-desc"> {{discript}} </view>
@@ -16,8 +16,8 @@
             </view>
         </view>
         <view class="item-tool">
-            <text class="tool-del">删除</text>
-            <text class="tool-done">完成</text>
+            <text class="tool-del" bindtap="delItem" data-index="{{index}}">删除</text>
+            <text class="tool-done" bindtap="finItem" data-index="{{index}}">完成</text>
         </view>
     </view>
 </template>
