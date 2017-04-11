@@ -34,5 +34,8 @@
         </view>
         <view class="button" bindtap="addTask">提交</view>
     </form>
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
 </view>
 
