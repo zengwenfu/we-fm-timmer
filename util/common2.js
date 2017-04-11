@@ -81,7 +81,10 @@ function requestToday() {
             data: {},
             method: 'GET',
             success: function(res){
+                console.log(res)
                 console.log(res.data.data.date);
+                app.globalData.getKey = res.data.data.date;
+                console.log(app.globalData.getKey)
                 var result = dueResult(res);
                 saveToLocal(res.data.data.date, result);
                 resolve(result);

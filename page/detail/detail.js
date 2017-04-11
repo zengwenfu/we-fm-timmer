@@ -1,4 +1,5 @@
-var common = require('../../util/common.js')
+var common = require('../../util/common.js');
+var app = getApp();
 Page({
   data: {
     list: [],
@@ -62,7 +63,7 @@ Page({
   onLoad: function(options) {
     let _this = this;
     console.log(options.type);
-    common.getItemByType('2017/04/10',options.type,function(res){
+    common.getItemByType(app.globalData.getKey,options.type,function(res){
       _this.setData({
         list: res
       })

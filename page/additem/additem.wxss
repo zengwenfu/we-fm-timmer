@@ -31,6 +31,9 @@
     border-radius: 10rpx;
     padding: 0 30rpx;
 }
+.picker {
+    line-height: 80rpx;
+}
 
 .pclass {
     color: #FFAC28;
