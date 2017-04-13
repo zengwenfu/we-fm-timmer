@@ -116,6 +116,7 @@ Page({
     })
   },
   onLoad: function(options) {
+
     let _this = this;
     console.log(options.type);
     _this.setData({

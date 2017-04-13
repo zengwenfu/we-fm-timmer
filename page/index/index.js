@@ -1,4 +1,6 @@
 var common = require('../../util/common2.js');
+var app = getApp();
+
 Page({
   data: {
     userinfo: {
@@ -62,10 +64,11 @@ Page({
       }
     });
   },
-  loadTaskData: function() {
+  loadTaskData: function(callback) {
     let _this = this;
     common.getToday().then(function(result) {
       console.log(result);
+      callback && callback(result);
       _this.setData({
         importUrgency: {
           all: result['1'] ? result['1'].total : 0,
@@ -106,7 +109,10 @@ Page({
     // Do something when page close.
   },
   onPullDownRefresh: function() {
-    // Do something when pull down.
+    app.globalData.updateFlag = true;
+    this.loadTaskData(function() {
+      wx.stopPullDownRefresh();
+    });
   },
   onReachBottom: function() {
     // Do something when page reach bottom.

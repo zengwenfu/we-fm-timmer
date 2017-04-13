@@ -15,9 +15,9 @@
                 <view class="time-end"> {{end}} </view>
             </view>
         </view>
-        <view class="item-tool">
+        <!--<view class="item-tool">
             <text class="tool-del" bindtap="delItem" data-index="{{index}}">删除</text>
             <text class="tool-done" bindtap="finItem" data-index="{{index}}">完成</text>
-        </view>
+        </view>-->
     </view>
 </template>

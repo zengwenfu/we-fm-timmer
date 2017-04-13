@@ -18,6 +18,8 @@ function login() {
                     if(sessionid) {
                         param.sessionid = sessionid;
                     }
+
+                    console.log(param);
                     //发起网络请求
                     wx.request({
                         url: 'https://we.facemagic888.com/user/login',
@@ -132,5 +134,7 @@ function checkSession() {
 
 module.exports = {
     checkSession: checkSession,
-    getSessionId: getSessionId
+    getSessionId: getSessionId,
+    login: login,
+    regist: regist
 }
